@@ -755,7 +755,7 @@ tree-sitter = { version = "0.26.8", features = ["wasm"] }
 tree-sitter-bash = "0.25.1"
 tree-sitter-c = "0.24.1"
 tree-sitter-cpp = { git = "https://github.com/tree-sitter/tree-sitter-cpp", rev = "5cb9b693cfd7bfacab1d9ff4acac1a4150700609" }
-tree-sitter-css = "0.23"
+tree-sitter-css = { git = "https://github.com/mantou132/tree-sitter-css", rev = "62bb39a376ee8aa0ceb6cab27474b7c7136913b9" }
 tree-sitter-diff = "0.1.0"
 tree-sitter-elixir = "0.3"
 tree-sitter-embedded-template = "0.23.0"
@@ -764,7 +764,7 @@ tree-sitter-go = "0.25"
 tree-sitter-go-mod = { git = "https://github.com/camdencheek/tree-sitter-go-mod", rev = "2e886870578eeba1927a2dc4bd2e2b3f598c5f9a", package = "tree-sitter-gomod" }
 tree-sitter-gowork = { git = "https://github.com/zed-industries/tree-sitter-go-work", rev = "acb0617bf7f4fda02c6217676cc64acb89536dc7" }
 tree-sitter-heex = { git = "https://github.com/zed-industries/tree-sitter-heex", rev = "1dd45142fbb05562e35b2040c6129c9bca346592" }
-tree-sitter-html = "0.23"
+tree-sitter-html = { git = "https://github.com/mantou132/tree-sitter-html", rev = "b9f5e1866a522f8c54a43547f29b3f0ec8df074c" }
 tree-sitter-jsdoc = "0.23"
 tree-sitter-json = "0.24"
 tree-sitter-md = { git = "https://github.com/tree-sitter-grammars/tree-sitter-markdown", rev = "9a23c1a96c0513d8fc6520972beedd419a973539" }

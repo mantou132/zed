@@ -13,25 +13,16 @@
   (#set! injection.language "regex"))
 
 (call_expression
-  function: (identifier) @_name
-  (#eq? @_name "css")
-  arguments: (template_string
-    (string_fragment) @injection.content
-    (#set! injection.language "css")))
+  function: (identifier) @_name (#match? @_name "^(styled|css)(\\.\\w+)?$")
+  arguments: (template_string) @injection.content
+                              (#set! injection.language "css")
+)
 
 (call_expression
   function: (member_expression
     object: (identifier) @_obj
     (#eq? @_obj "styled")
     property: (property_identifier))
-  arguments: (template_string
-    (string_fragment) @injection.content
-    (#set! injection.language "css")))
-
-(call_expression
-  function: (call_expression
-    function: (identifier) @_name
-    (#eq? @_name "styled"))
   arguments: (template_string
     (string_fragment) @injection.content
     (#set! injection.language "css")))
@@ -154,15 +145,11 @@
 ; Parse the contents of strings and tagged template
 ; literals with leading ECMAScript comments:
 ; '/* html */' or '/*html*/'
-(((comment) @_ecma_comment
-  [
-    (string
-      (string_fragment) @injection.content)
-    (template_string
-      (string_fragment) @injection.content)
-  ])
-  (#match? @_ecma_comment "^\\/\\*\\s*html\\s*\\*\\/")
-  (#set! injection.language "html"))
+((comment) @_html_comment
+  (#match? @_html_comment "/[*]+\\s*html\\s*[*]+/")
+  (template_string) @injection.content
+                              (#set! injection.language "html")
+)
 
 ; '/* sql */' or '/*sql*/'
 (((comment) @_ecma_comment
@@ -188,12 +175,8 @@
   (#set! injection.language "graphql"))
 
 ; '/* css */' or '/*css*/'
-(((comment) @_ecma_comment
-  [
-    (string
-      (string_fragment) @injection.content)
-    (template_string
-      (string_fragment) @injection.content)
-  ])
-  (#match? @_ecma_comment "^\\/\\*\\s*(css)\\s*\\*\\/")
-  (#set! injection.language "css"))
+((comment) @_css_comment
+  (#match? @_css_comment "/[*]+\\s*(css|style)\\s*[*]+/")
+  (template_string) @injection.content
+                              (#set! injection.language "css")
+)
