@@ -15,5 +15,5 @@ language = "HTML"
 "CSS" = "css"
 
 [grammars.html]
-repository = "https://github.com/tree-sitter/tree-sitter-html"
-commit = "bfa075d83c6b97cd48440b3829ab8d24a2319809"
+repository = "https://github.com/mantou132/tree-sitter-html"
+commit = "b9f5e1866a522f8c54a43547f29b3f0ec8df074c"
